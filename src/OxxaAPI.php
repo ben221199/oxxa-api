@@ -329,6 +329,129 @@ class OxxaAPI{
 		return $this->fetchCommandWithCredentials('dnstemplate_record_del',$arguments);
 	}
 
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function DOMAIN_CHECK(array $arguments){
+		if(array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		return $this->fetchCommandWithCredentials('domain_check',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function DOMAIN_DEL(array $arguments){
+		if(array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		return $this->fetchCommandWithCredentials('domain_del',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function DOMAIN_EPP(array $arguments){
+		if(array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		return $this->fetchCommandWithCredentials('domain_epp',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function DOMAIN_INF(array $arguments){
+		if(array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		return $this->fetchCommandWithCredentials('domain_inf',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function DOMAIN_LIST(array $arguments){
+		return $this->fetchCommandWithCredentials('domain_list',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function DOMAIN_NS_UPD(array $arguments){
+		if(array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		return $this->fetchCommandWithCredentials('domain_ns_upd',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function DOMAIN_PUSH(array $arguments){
+		if(array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		if(array_key_exists('username',$arguments)){
+			throw new InvalidArgumentException('Missing USERNAME argument.');
+		}
+		return $this->fetchCommandWithCredentials('domain_push',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function DOMAIN_RESTORE(array $arguments){
+		if(array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		return $this->fetchCommandWithCredentials('domain_restore',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function DOMAIN_UPD(array $arguments){
+		if(array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		return $this->fetchCommandWithCredentials('domain_upd',$arguments);
+	}
+
 	protected function fetchCommandWithCredentials(string $command,array $arguments){
 		$basicArguments = [
 			'apiuser'		=> $this->user,
