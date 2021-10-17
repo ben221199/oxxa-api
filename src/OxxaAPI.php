@@ -452,6 +452,241 @@ class OxxaAPI{
 		return $this->fetchCommandWithCredentials('domain_upd',$arguments);
 	}
 
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function FUNDS_GET(array $arguments){
+		return $this->fetchCommandWithCredentials('funds_get',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function FUNDS_LIST(array $arguments){
+		return $this->fetchCommandWithCredentials('funds_list',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function FOARESEND(array $arguments){
+		if(!array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(!array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		return $this->fetchCommandWithCredentials('foaresend',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function GLUE_ADD(array $arguments){
+		if(!array_key_exists('ns_fqdn',$arguments)){
+			throw new InvalidArgumentException('Missing NS_FQDN argument.');
+		}
+		if(!array_key_exists('ns_ip',$arguments)){
+			throw new InvalidArgumentException('Missing NS_IP argument.');
+		}
+		return $this->fetchCommandWithCredentials('glue_add',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function GLUE_DEL(array $arguments){
+		if(!array_key_exists('ns_fqdn',$arguments)){
+			throw new InvalidArgumentException('Missing NS_FQDN argument.');
+		}
+		if(!array_key_exists('ns_ip',$arguments)){
+			throw new InvalidArgumentException('Missing NS_IP argument.');
+		}
+		return $this->fetchCommandWithCredentials('glue_del',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function GLUE_GET(array $arguments){
+		if(!array_key_exists('ns_fqdn',$arguments)){
+			throw new InvalidArgumentException('Missing NS_FQDN argument.');
+		}
+		return $this->fetchCommandWithCredentials('glue_get',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function GLUE_LIST(array $arguments){
+		return $this->fetchCommandWithCredentials('glue_list',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function GLUE_UPD(array $arguments){
+		if(!array_key_exists('ns_fqdn',$arguments)){
+			throw new InvalidArgumentException('Missing NS_FQDN argument.');
+		}
+		if(!array_key_exists('ns_ip',$arguments)){
+			throw new InvalidArgumentException('Missing NS_IP argument.');
+		}
+		return $this->fetchCommandWithCredentials('glue_upd',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function IDENTITY_ADD(array $arguments){
+		//Required arguments depend on TLD
+		return $this->fetchCommandWithCredentials('identity_add',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function IDENTITY_DEL(array $arguments){
+		if(!array_key_exists('identity',$arguments)){
+			throw new InvalidArgumentException('Missing IDENTITY argument.');
+		}
+		return $this->fetchCommandWithCredentials('identity_del',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function IDENTITY_GET(array $arguments){
+		if(!array_key_exists('identity',$arguments)){
+			throw new InvalidArgumentException('Missing IDENTITY argument.');
+		}
+		return $this->fetchCommandWithCredentials('identity_get',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function IDENTITY_LIST(array $arguments){
+		return $this->fetchCommandWithCredentials('identity_del',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function IDENTITY_UPD(array $arguments){
+		if(!array_key_exists('identity',$arguments)){
+			throw new InvalidArgumentException('Missing IDENTITY argument.');
+		}
+		return $this->fetchCommandWithCredentials('identity_upd',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function LOCK(array $arguments){
+		if(!array_key_exists('sld',$arguments)){
+			throw new InvalidArgumentException('Missing SLD argument.');
+		}
+		if(!array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		if(!array_key_exists('lock',$arguments)){
+			throw new InvalidArgumentException('Missing LOCK argument.');
+		}
+		return $this->fetchCommandWithCredentials('lock',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function NSGROUP_ADD(array $arguments){
+		if(!array_key_exists('alias',$arguments)){
+			throw new InvalidArgumentException('Missing ALIAS argument.');
+		}
+		if(!array_key_exists('ns1_fqdn',$arguments)){
+			throw new InvalidArgumentException('Missing NS1_FQDN argument.');
+		}
+		if(!array_key_exists('ns2_fqdn',$arguments)){
+			throw new InvalidArgumentException('Missing NS2_FQDN argument.');
+		}
+		return $this->fetchCommandWithCredentials('nsgroup_add',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function NSGROUP_DEL(array $arguments){
+		if(!array_key_exists('nsgroup',$arguments)){
+			throw new InvalidArgumentException('Missing NSGROUP argument.');
+		}
+		return $this->fetchCommandWithCredentials('nsgroup_del',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function NSGROUP_GET(array $arguments){
+		if(!array_key_exists('nsgroup',$arguments)){
+			throw new InvalidArgumentException('Missing NSGROUP argument.');
+		}
+		return $this->fetchCommandWithCredentials('nsgroup_get',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function NSGROUP_LIST(array $arguments){
+		return $this->fetchCommandWithCredentials('nsgroup_list',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function NSGROUP_UPD(array $arguments){
+		if(!array_key_exists('nsgroup',$arguments)){
+			throw new InvalidArgumentException('Missing NSGROUP argument.');
+		}
+		return $this->fetchCommandWithCredentials('nsgroup_upd',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function ORDER_LIST(array $arguments){
+		return $this->fetchCommandWithCredentials('order_list',$arguments);
+	}
+
+	/**
+	 * @param array $arguments
+	 * @return mixed
+	 */
+	public function PRICECHECK(array $arguments){
+		if(!array_key_exists('tld',$arguments)){
+			throw new InvalidArgumentException('Missing TLD argument.');
+		}
+		return $this->fetchCommandWithCredentials('pricecheck',$arguments);
+	}
+
 	protected function fetchCommandWithCredentials(string $command,array $arguments){
 		$basicArguments = [
 			'apiuser'		=> $this->user,
