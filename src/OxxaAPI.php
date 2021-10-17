@@ -687,6 +687,190 @@ class OxxaAPI{
 		return $this->fetchCommandWithCredentials('pricecheck',$arguments);
 	}
 
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function QUEUE_GET(array $arguments){
+        if(!array_key_exists('queue_id',$arguments)){
+            throw new InvalidArgumentException('Missing QUEUE_ID argument.');
+        }
+        return $this->fetchCommandWithCredentials('queue_get',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function QUEUE_LIST(array $arguments){
+        return $this->fetchCommandWithCredentials('queue_list',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function QUEUE_UPD(array $arguments){
+        if(!array_key_exists('queue_id',$arguments)){
+            throw new InvalidArgumentException('Missing QUEUE_ID argument.');
+        }
+        return $this->fetchCommandWithCredentials('queue_upd',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function QUEUE_DEL(array $arguments){
+        if(!array_key_exists('queue_id',$arguments)){
+            throw new InvalidArgumentException('Missing QUEUE_ID argument.');
+        }
+        return $this->fetchCommandWithCredentials('queue_del',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function REGISTER(array $arguments){
+        if(!array_key_exists('identity-admin',$arguments)){
+            throw new InvalidArgumentException('Missing IDENTITY-ADMIN argument.');
+        }
+        if(!array_key_exists('identity-registrant',$arguments)){
+            throw new InvalidArgumentException('Missing IDENTITY-REGISTRANT argument.');
+        }
+        if(!array_key_exists('nsgroup',$arguments)){
+            throw new InvalidArgumentException('Missing NSGROUP argument.');
+        }
+        if(!array_key_exists('sld',$arguments)){
+            throw new InvalidArgumentException('Missing SLD argument.');
+        }
+        if(!array_key_exists('tld',$arguments)){
+            throw new InvalidArgumentException('Missing TLD argument.');
+        }
+        if(!array_key_exists('period',$arguments)){
+            throw new InvalidArgumentException('Missing PERIOD argument.');
+        }
+        if(!array_key_exists('autorenew',$arguments)){
+            throw new InvalidArgumentException('Missing AUTORENEW argument.');
+        }
+        return $this->fetchCommandWithCredentials('register',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function REGISTER_STATUS(array $arguments){
+        if(!array_key_exists('sld',$arguments)){
+            throw new InvalidArgumentException('Missing SLD argument.');
+        }
+        if(!array_key_exists('tld',$arguments)){
+            throw new InvalidArgumentException('Missing TLD argument.');
+        }
+        return $this->fetchCommandWithCredentials('register_status',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function RENEW(array $arguments){
+        if(!array_key_exists('sld',$arguments)){
+            throw new InvalidArgumentException('Missing SLD argument.');
+        }
+        if(!array_key_exists('tld',$arguments)){
+            throw new InvalidArgumentException('Missing TLD argument.');
+        }
+        if(!array_key_exists('period',$arguments)){
+            throw new InvalidArgumentException('Missing PERIOD argument.');
+        }
+        return $this->fetchCommandWithCredentials('renew',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function RESELLERADD(array $arguments){
+        if(!array_key_exists('alias',$arguments)){
+            throw new InvalidArgumentException('Missing ALIAS argument.');
+        }
+        if(!array_key_exists('company',$arguments)){
+            throw new InvalidArgumentException('Missing COMPANY argument.');
+        }
+        if(!array_key_exists('firstname',$arguments)){
+            throw new InvalidArgumentException('Missing FIRSTNAME argument.');
+        }
+        if(!array_key_exists('lastname',$arguments)){
+            throw new InvalidArgumentException('Missing LASTNAME argument.');
+        }
+        if(!array_key_exists('street',$arguments)){
+            throw new InvalidArgumentException('Missing STREET argument.');
+        }
+        if(!array_key_exists('number',$arguments)){
+            throw new InvalidArgumentException('Missing NUMBER argument.');
+        }
+        if(!array_key_exists('postal',$arguments)){
+            throw new InvalidArgumentException('Missing POSTAL argument.');
+        }
+        if(!array_key_exists('city',$arguments)){
+            throw new InvalidArgumentException('Missing CITY argument.');
+        }
+        if(!array_key_exists('tel',$arguments)){
+            throw new InvalidArgumentException('Missing TEL argument.');
+        }
+        if(!array_key_exists('email',$arguments)){
+            throw new InvalidArgumentException('Missing EMAIL argument.');
+        }
+        if(!array_key_exists('country',$arguments)){
+            throw new InvalidArgumentException('Missing COUNTRY argument.');
+        }
+        return $this->fetchCommandWithCredentials('reselleradd',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function RESELLERDEL(array $arguments){
+        if(!array_key_exists('identity',$arguments)){
+            throw new InvalidArgumentException('Missing IDENTITY argument.');
+        }
+        return $this->fetchCommandWithCredentials('resellerdel',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function RESELLERGET(array $arguments){
+        if(!array_key_exists('identity',$arguments)){
+            throw new InvalidArgumentException('Missing IDENTITY argument.');
+        }
+        return $this->fetchCommandWithCredentials('resellerget',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function RESELLERLIST(array $arguments){
+        return $this->fetchCommandWithCredentials('resellerlist',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     * @see RESELLERADD
+     */
+    public function RESELLERUPD(array $arguments){
+        if(!array_key_exists('identity',$arguments)){
+            throw new InvalidArgumentException('Missing IDENTITY argument.');
+        }
+        return $this->fetchCommandWithCredentials('resellerupd',$arguments);
+    }
+
 	protected function fetchCommandWithCredentials(string $command,array $arguments){
 		$basicArguments = [
 			'apiuser'		=> $this->user,
