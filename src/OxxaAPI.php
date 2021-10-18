@@ -579,7 +579,7 @@ class OxxaAPI{
 	 * @return mixed
 	 */
 	public function IDENTITY_LIST(array $arguments=[]){
-		return $this->fetchCommandWithCredentials('identity_del',$arguments);
+		return $this->fetchCommandWithCredentials('identity_list',$arguments);
 	}
 
 	/**
