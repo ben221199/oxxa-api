@@ -29,6 +29,38 @@ class Order{
     /**@var bool $done*/
     private $done;
 
+    public function getOrderId(){
+        return $this->order_id;
+    }
+
+    public function getCommand(){
+        return $this->command;
+    }
+
+    public function getStatusCode(){
+        return $this->status_code;
+    }
+
+    public function getStatusDescription(){
+        return $this->status_description;
+    }
+
+    public function getPrice(){
+        return $this->price;
+    }
+
+    public function getDetails(){
+        return $this->details;
+    }
+
+    public function isOrderComplete(){
+        return $this->order_complete;
+    }
+
+    public function isDone(){
+        return $this->done;
+    }
+
     public static function fromXML(string $xml){
         $simpleXML = new SimpleXMLElement($xml);
 
