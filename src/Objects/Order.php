@@ -70,7 +70,8 @@ class Order{
         $order->status_code = (string) $simpleXML->xpath('status_code')[0];
         $order->status_description = (string) $simpleXML->xpath('status_description')[0];
         $order->price = floatval((string) $simpleXML->xpath('price')[0]);
-        $order->details = Details::fromXML($simpleXML->xpath('details')[0]->asXML());
+        $detailsXML = $simpleXML->xpath('details')[0] ?? null;
+        $order->details = $detailsXML?Details::fromXML($detailsXML->asXML()):null;
         $order->order_complete = boolval((string) $simpleXML->xpath('order_complete')[0]);
         $order->done = boolval((string) $simpleXML->xpath('done')[0]);
         return $order;

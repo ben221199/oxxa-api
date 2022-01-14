@@ -16,7 +16,8 @@ class Channel{
         $simpleXML = new SimpleXMLElement($xml);
 
         $channel = new static;
-        $channel->order = Order::fromXML($simpleXML->xpath('order')[0]->asXML());
+        $orderXML = $simpleXML->xpath('order')[0] ?? null;
+        $channel->order = $orderXML?Order::fromXML($orderXML->asXML()):null;
         return $channel;
     }
 
