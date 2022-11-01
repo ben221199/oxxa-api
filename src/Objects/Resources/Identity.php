@@ -48,7 +48,7 @@ class Identity{
 
 	/**
 	 * @param Details $details
-	 * @return Domain[]|Domain
+	 * @return Identity[]|Identity
 	 */
 	public static function fromDetails($details,$isSingle=false){
         $identities = $details->xpath('identity');
