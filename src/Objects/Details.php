@@ -13,6 +13,10 @@ class Details{
     }
 
     public function getElementsByName($name){
+        return $this->xpath($name);
+    }
+
+    public function xpath($name){
         return $this->_simpleXML->xpath($name);
     }
 
