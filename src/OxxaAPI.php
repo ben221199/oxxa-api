@@ -343,6 +343,14 @@ class OxxaAPI{
 		return $this->fetchCommandWithCredentials('domain_check',$arguments);
 	}
 
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function DOMAIN_CHECKNEW(array $arguments=[]){
+        return $this->fetchCommandWithCredentials('domain_checknew',$arguments);
+    }
+
 	/**
 	 * @param array $arguments
 	 * @return mixed
@@ -451,6 +459,14 @@ class OxxaAPI{
 		}
 		return $this->fetchCommandWithCredentials('domain_upd',$arguments);
 	}
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function EXTENSION_LIST(array $arguments=[]){
+        return $this->fetchCommandWithCredentials('extension_list',$arguments);
+    }
 
 	/**
 	 * @param array $arguments
@@ -1216,6 +1232,22 @@ class OxxaAPI{
 		return $this->fetchCommandWithCredentials('ownercresend',$arguments);
 	}
 
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function USERSETTINGS(array $arguments=[]){
+        return $this->fetchCommandWithCredentials('usersettings',$arguments);
+    }
+
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function USERSETTINGSGET(array $arguments=[]){
+        return $this->fetchCommandWithCredentials('usersettingsget',$arguments);
+    }
+
 	protected function fetchCommandWithCredentials(string $command,array $arguments){
 		$basicArguments = [
 			'apiuser'		=> $this->user,
@@ -1255,11 +1287,20 @@ class OxxaAPI{
 
 	/**
 	 * Converts boolean to 'Y' (Yes) or 'N' (No)
-	 * @param $bool
+	 * @param bool $bool
 	 * @return string
 	 */
 	public static function convertBoolean($bool){
 		return $bool?'Y':'N';
 	}
+
+    /**
+     * Converts 'Y' (Yes) or 'N' (No) to boolean
+     * @param string $yesNo
+     * @return bool
+     */
+    public static function convertYesNo($yesNo){
+        return $yesNo==='Y';
+    }
 
 }
