@@ -379,6 +379,20 @@ class OxxaAPI{
 		return $this->fetchCommandWithCredentials('domain_epp',$arguments);
 	}
 
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function DOMAIN_EPP_SHOW(array $arguments=[]){
+        if(!array_key_exists('sld',$arguments)){
+            throw new InvalidArgumentException('Missing SLD argument.');
+        }
+        if(!array_key_exists('tld',$arguments)){
+            throw new InvalidArgumentException('Missing TLD argument.');
+        }
+        return $this->fetchCommandWithCredentials('domain_epp_show',$arguments);
+    }
+
 	/**
 	 * @param array $arguments
 	 * @return mixed
@@ -498,6 +512,17 @@ class OxxaAPI{
 		return $this->fetchCommandWithCredentials('foaresend',$arguments);
 	}
 
+    /**
+     * @param array $arguments
+     * @return mixed
+     */
+    public function GLUE(array $arguments=[]){
+        if(!array_key_exists('ns_fqdn',$arguments)){
+            throw new InvalidArgumentException('Missing NS_FQDN argument.');
+        }
+        return $this->fetchCommandWithCredentials('glue',$arguments);
+    }
+
 	/**
 	 * @param array $arguments
 	 * @return mixed
@@ -553,8 +578,8 @@ class OxxaAPI{
 		if(!array_key_exists('ns_fqdn',$arguments)){
 			throw new InvalidArgumentException('Missing NS_FQDN argument.');
 		}
-		if(!array_key_exists('ns_ip',$arguments)){
-			throw new InvalidArgumentException('Missing NS_IP argument.');
+		if(!array_key_exists('ns_ip_new',$arguments)){
+			throw new InvalidArgumentException('Missing NS_IP_NEW argument.');
 		}
 		return $this->fetchCommandWithCredentials('glue_upd',$arguments);
 	}
