@@ -11,15 +11,15 @@ class OxxaAPI{
 	private $useMD5;
 	private $isTesting;
 
-	/**
-	 * OxxaAPI constructor.
-	 * @param $baseURL
-	 * @param $user
-	 * @param $password
-	 * @param $useMD5
-	 * @param $isTesting
-	 */
-	public function __construct($baseURL,$user,$password,$useMD5=true,$isTesting=false){
+    /**
+     * Constructor.
+     * @param string $baseURL
+     * @param string $user
+     * @param string $password
+     * @param ?bool|null $useMD5
+     * @param ?bool|null $isTesting
+     */
+	public function __construct(string $baseURL,string $user,string $password,?bool $useMD5=true,?bool $isTesting=false){
 		$this->baseURL = $baseURL;
 		$this->user = $user;
 		$this->password = $password;
@@ -29,7 +29,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function AUTORENEW(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -46,7 +46,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function CART_ADD(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -66,7 +66,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function CART_DEL(array $arguments=[]){
 		if(!array_key_exists('enduserip',$arguments)){
@@ -83,7 +83,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function CART_GET(array $arguments=[]){
 		if(!array_key_exists('cart_id',$arguments)){
@@ -94,7 +94,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function CART_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('cart_list',$arguments);
@@ -102,7 +102,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function CART_PURCHASE(array $arguments=[]){
 		if(!array_key_exists('cart_id',$arguments)){
@@ -113,7 +113,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function CART_UPD(array $arguments=[]){
 		if(!array_key_exists('enduserip',$arguments)){
@@ -127,7 +127,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSRECORD_ADD(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -150,7 +150,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSRECORD_DEL(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -176,7 +176,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSRECORD_LIST(array $arguments=[]){
 		if(!array_key_exists('tld',$arguments)){
@@ -190,7 +190,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSSEC_ADD(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -216,7 +216,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSSEC_DEL(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -242,7 +242,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSSEC_INFO(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -256,7 +256,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSTEMPLATE_ADD(array $arguments=[]){
 		if(!array_key_exists('alias',$arguments)){
@@ -267,7 +267,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSTEMPLATE_DEL(array $arguments=[]){
 		if(!array_key_exists('handle',$arguments)){
@@ -278,7 +278,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSTEMPLATE_GET(array $arguments=[]){
 		if(!array_key_exists('handle',$arguments)){
@@ -289,7 +289,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSTEMPLATE_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('dnstemplate_list',$arguments);
@@ -297,7 +297,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSTEMPLATE_RECORD_ADD(array $arguments=[]){
 		if(!array_key_exists('handle',$arguments)){
@@ -320,7 +320,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DNSTEMPLATE_RECORD_DEL(array $arguments=[]){
 		if(!array_key_exists('recordid',$arguments)){
@@ -331,7 +331,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DOMAIN_CHECK(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -353,7 +353,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DOMAIN_DEL(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -367,7 +367,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DOMAIN_EPP(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -395,7 +395,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DOMAIN_INF(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -409,7 +409,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DOMAIN_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('domain_list',$arguments);
@@ -417,7 +417,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DOMAIN_NS_UPD(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -431,7 +431,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DOMAIN_PUSH(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -448,7 +448,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DOMAIN_RESTORE(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -462,7 +462,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function DOMAIN_UPD(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -484,7 +484,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function FUNDS_GET(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('funds_get',$arguments);
@@ -492,7 +492,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function FUNDS_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('funds_list',$arguments);
@@ -500,7 +500,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function FOARESEND(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -525,7 +525,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function GLUE_ADD(array $arguments=[]){
 		if(!array_key_exists('ns_fqdn',$arguments)){
@@ -539,7 +539,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function GLUE_DEL(array $arguments=[]){
 		if(!array_key_exists('ns_fqdn',$arguments)){
@@ -553,7 +553,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function GLUE_GET(array $arguments=[]){
 		if(!array_key_exists('ns_fqdn',$arguments)){
@@ -564,7 +564,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function GLUE_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('glue_list',$arguments);
@@ -572,7 +572,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function GLUE_UPD(array $arguments=[]){
 		if(!array_key_exists('ns_fqdn',$arguments)){
@@ -586,7 +586,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function IDENTITY_ADD(array $arguments=[]){
 		//Required arguments depend on TLD
@@ -595,7 +595,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function IDENTITY_DEL(array $arguments=[]){
 		if(!array_key_exists('identity',$arguments)){
@@ -606,7 +606,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function IDENTITY_GET(array $arguments=[]){
 		if(!array_key_exists('identity',$arguments)){
@@ -617,7 +617,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function IDENTITY_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('identity_list',$arguments);
@@ -625,7 +625,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function IDENTITY_UPD(array $arguments=[]){
 		if(!array_key_exists('identity',$arguments)){
@@ -636,7 +636,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function LOCK(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -653,7 +653,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function NSGROUP_ADD(array $arguments=[]){
 		if(!array_key_exists('alias',$arguments)){
@@ -670,7 +670,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function NSGROUP_DEL(array $arguments=[]){
 		if(!array_key_exists('nsgroup',$arguments)){
@@ -681,7 +681,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function NSGROUP_GET(array $arguments=[]){
 		if(!array_key_exists('nsgroup',$arguments)){
@@ -692,7 +692,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function NSGROUP_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('nsgroup_list',$arguments);
@@ -700,7 +700,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function NSGROUP_UPD(array $arguments=[]){
 		if(!array_key_exists('nsgroup',$arguments)){
@@ -711,7 +711,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function ORDER_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('order_list',$arguments);
@@ -719,7 +719,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function PRICECHECK(array $arguments=[]){
 		if(!array_key_exists('tld',$arguments)){
@@ -730,7 +730,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function QUEUE_GET(array $arguments=[]){
 		if(!array_key_exists('queue_id',$arguments)){
@@ -741,7 +741,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function QUEUE_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('queue_list',$arguments);
@@ -749,7 +749,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function QUEUE_UPD(array $arguments=[]){
 		if(!array_key_exists('queue_id',$arguments)){
@@ -760,7 +760,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function QUEUE_DEL(array $arguments=[]){
 		if(!array_key_exists('queue_id',$arguments)){
@@ -771,7 +771,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function REGISTER(array $arguments=[]){
 		if(!array_key_exists('identity-admin',$arguments)){
@@ -800,7 +800,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function REGISTER_STATUS(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -814,7 +814,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function RENEW(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -831,7 +831,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function RESELLERADD(array $arguments=[]){
 		if(!array_key_exists('alias',$arguments)){
@@ -872,7 +872,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function RESELLERDEL(array $arguments=[]){
 		if(!array_key_exists('identity',$arguments)){
@@ -883,7 +883,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function RESELLERGET(array $arguments=[]){
 		if(!array_key_exists('identity',$arguments)){
@@ -894,7 +894,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function RESELLERLIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('resellerlist',$arguments);
@@ -902,7 +902,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 * @see RESELLERADD
 	 */
 	public function RESELLERUPD(array $arguments=[]){
@@ -914,7 +914,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SERVER_CREATE(array $arguments=[]){
 		if(!array_key_exists('type',$arguments)){
@@ -937,7 +937,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SERVER_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('server_list',$arguments);
@@ -945,7 +945,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SERVER_GET(array $arguments=[]){
 		if(!array_key_exists('server_id',$arguments)){
@@ -956,7 +956,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SERVER_DELETE(array $arguments=[]){
 		if(!array_key_exists('server_id',$arguments)){
@@ -967,7 +967,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SERVER_UPDATE(array $arguments=[]){
 		if(!array_key_exists('name',$arguments)){
@@ -987,7 +987,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('ssl_list',$arguments);
@@ -995,7 +995,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_AUTORENEW(array $arguments=[]){
 		if(!array_key_exists('sslid',$arguments)){
@@ -1009,7 +1009,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_PRODUCT_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('ssl_product_list',$arguments);
@@ -1017,7 +1017,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_APPROVERLIST(array $arguments=[]){
 		if(!array_key_exists('ssl',$arguments)){
@@ -1031,7 +1031,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_STATUS(array $arguments=[]){
 		if(!array_key_exists('sslid',$arguments)){
@@ -1042,7 +1042,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_EXTENDED_STATUS(array $arguments=[]){
 		if(!array_key_exists('sslid',$arguments)){
@@ -1053,7 +1053,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_CANCEL(array $arguments=[]){
 		if(!array_key_exists('sslid',$arguments)){
@@ -1064,7 +1064,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_NEW(array $arguments=[]){
 		if(!array_key_exists('identity-organisation',$arguments)){
@@ -1093,7 +1093,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_REISSUE(array $arguments=[]){
 		if(!array_key_exists('sslid',$arguments)){
@@ -1107,7 +1107,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_CHANGE_APPROVER(array $arguments=[]){
 		if(!array_key_exists('sslid',$arguments)){
@@ -1121,7 +1121,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_DOWNLOAD(array $arguments=[]){
 		if(!array_key_exists('sslid',$arguments)){
@@ -1132,7 +1132,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_RESEND_APPROVER(array $arguments=[]){
 		if(!array_key_exists('sslid',$arguments)){
@@ -1143,7 +1143,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function SSL_REVOKE(array $arguments=[]){
 		if(!array_key_exists('sslid',$arguments)){
@@ -1154,7 +1154,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function TASK_GET(array $arguments=[]){
 		if(!array_key_exists('task_id',$arguments)){
@@ -1165,7 +1165,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function TASK_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('task_list',$arguments);
@@ -1173,7 +1173,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function TRANSFER(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -1199,7 +1199,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function TRANSFER_STATUS(array $arguments=[]){
 		if(!array_key_exists('sld',$arguments)){
@@ -1213,7 +1213,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function USER_FUNDS(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('user_funds',$arguments);
@@ -1221,7 +1221,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function USER_RESET(array $arguments=[]){
 		if(!array_key_exists('username',$arguments)){
@@ -1232,7 +1232,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function USER_TLD_LIST(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('user_tld_list',$arguments);
@@ -1240,7 +1240,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function OWNERCPENDING(array $arguments=[]){
 		return $this->fetchCommandWithCredentials('ownercpending',$arguments);
@@ -1248,7 +1248,7 @@ class OxxaAPI{
 
 	/**
 	 * @param array $arguments
-	 * @return mixed
+     * @return string|bool
 	 */
 	public function OWNERCRESEND(array $arguments=[]){
 		if(!array_key_exists('id',$arguments)){
@@ -1259,7 +1259,7 @@ class OxxaAPI{
 
     /**
      * @param array $arguments
-     * @return mixed
+     * @return string|bool
      */
     public function USERSETTINGS(array $arguments=[]){
         return $this->fetchCommandWithCredentials('usersettings',$arguments);
@@ -1267,13 +1267,18 @@ class OxxaAPI{
 
     /**
      * @param array $arguments
-     * @return mixed
+     * @return string|bool
      */
     public function USERSETTINGSGET(array $arguments=[]){
         return $this->fetchCommandWithCredentials('usersettingsget',$arguments);
     }
 
-	protected function fetchCommandWithCredentials(string $command,array $arguments){
+    /**
+     * @param string $command
+     * @param array $arguments
+     * @return string|bool
+     */
+	public function fetchCommandWithCredentials(string $command,array $arguments){
 		$basicArguments = [
 			'apiuser'		=> $this->user,
 			'apipassword'	=> $this->useMD5?('MD5'.md5($this->password)):$this->password,
@@ -1312,11 +1317,11 @@ class OxxaAPI{
 
 	/**
 	 * Converts boolean to 'Y' (Yes) or 'N' (No)
-	 * @param bool $bool
+	 * @param bool $boolean
 	 * @return string
 	 */
-	public static function convertBoolean($bool){
-		return $bool?'Y':'N';
+	public static function convertBoolean(bool $boolean): string{
+		return $boolean?'Y':'N';
 	}
 
     /**
@@ -1324,7 +1329,7 @@ class OxxaAPI{
      * @param string $yesNo
      * @return bool
      */
-    public static function convertYesNo($yesNo){
+    public static function convertYesNo(string $yesNo): bool{
         return $yesNo==='Y';
     }
 

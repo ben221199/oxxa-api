@@ -2,6 +2,7 @@
 namespace Ben221199\Oxxa\API\Objects\Resources;
 
 use Ben221199\Oxxa\API\Objects\Details;
+
 use SimpleXMLElement;
 
 /**
@@ -11,11 +12,12 @@ use SimpleXMLElement;
  */
 class NSGroup{
 
-	/**
-	 * @param Details $details
-	 * @return NSGroup[]|NSGroup
-	 */
-	public static function fromDetails($details,$isSingle=false){
+    /**
+     * @param Details $details
+     * @param ?bool|null $isSingle
+     * @return NSGroup[]|NSGroup
+     */
+	public static function fromDetails(Details $details,?bool $isSingle=false){
 		$nsgroups = $details->xpath('nsgroup');
 		if($isSingle){
             $nsgroups = [$details];
@@ -27,7 +29,7 @@ class NSGroup{
             if(!$isSingle){
                 $nameservers = $nsgroup->xpath('nameservers')[0];
             }
-			$d = new self;
+			$d = new static;
 			$d->handle					= ((string) @$nsgroup->xpath('handle')[0]) ?? null;
 			$d->alias					= ((string) @$nsgroup->xpath('alias')[0]) ?? null;
 			$d->nameservers				= (NSGroup_Nameservers::from($nameservers)) ?? null;

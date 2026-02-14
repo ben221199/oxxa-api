@@ -1,6 +1,8 @@
 <?php
 namespace Ben221199\Oxxa\API\Objects;
 
+use Exception;
+
 use SimpleXMLElement;
 
 class Order{
@@ -29,39 +31,42 @@ class Order{
     /**@var bool $done*/
     private $done;
 
-    public function getOrderId(){
+    public function getOrderId(): int{
         return $this->order_id;
     }
 
-    public function getCommand(){
+    public function getCommand(): string{
         return $this->command;
     }
 
-    public function getStatusCode(){
+    public function getStatusCode(): string{
         return $this->status_code;
     }
 
-    public function getStatusDescription(){
+    public function getStatusDescription(): string{
         return $this->status_description;
     }
 
-    public function getPrice(){
+    public function getPrice(): float{
         return $this->price;
     }
 
-    public function getDetails(){
+    public function getDetails(): Details{
         return $this->details;
     }
 
-    public function isOrderComplete(){
+    public function isOrderComplete(): bool{
         return $this->order_complete;
     }
 
-    public function isDone(){
+    public function isDone(): bool{
         return $this->done;
     }
 
-    public static function fromXML(string $xml){
+    /**
+     * @throws Exception
+     */
+    public static function fromXML(string $xml): self{
         $simpleXML = new SimpleXMLElement($xml);
 
         $order = new static;

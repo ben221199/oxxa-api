@@ -1,6 +1,8 @@
 <?php
 namespace Ben221199\Oxxa\API\Objects;
 
+use Exception;
+
 use SimpleXMLElement;
 
 class Details{
@@ -8,7 +10,7 @@ class Details{
     /**@var SimpleXMLElement $_simpleXML*/
     private $_simpleXML;
 
-    public function getValue(){
+    public function getValue(): string{
         return (string) $this->_simpleXML;
     }
 
@@ -20,7 +22,10 @@ class Details{
         return $this->_simpleXML->xpath($name);
     }
 
-    public static function fromXML(string $xml){
+    /**
+     * @throws Exception
+     */
+    public static function fromXML(string $xml): self{
         $simpleXML = new SimpleXMLElement($xml);
 
         $details = new static;

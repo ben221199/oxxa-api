@@ -2,6 +2,7 @@
 namespace Ben221199\Oxxa\API\Objects\Resources;
 
 use Ben221199\Oxxa\API\Objects\Details;
+
 use SimpleXMLElement;
 
 /**
@@ -25,11 +26,12 @@ use SimpleXMLElement;
  */
 class Domain{
 
-	/**
-	 * @param Details $details
-	 * @return Domain[]|Domain
-	 */
-	public static function fromDetails($details,$isSingle=false){
+    /**
+     * @param Details $details
+     * @param ?bool|null $isSingle
+     * @return Domain[]|Domain
+     */
+	public static function fromDetails(Details $details,?bool $isSingle=false){
 		$domains = $details->xpath('domain');
 		if($isSingle){
 			$domains = [$details];
@@ -37,7 +39,7 @@ class Domain{
 		$data = [];
 		/**@var SimpleXMLElement $domain*/
 		foreach($domains AS $domain){
-			$d = new self;
+			$d = new static;
 			$d->domainname				= ((string) @$domain->xpath('domainname')[0]) ?? null;
 			$d->nsgroup					= ((string) @$domain->xpath('nsgroup')[0]) ?? null;
 			$d->{'identity-registrant'}	= ((string) @$domain->xpath('identity-registrant')[0]) ?? null;

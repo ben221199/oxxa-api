@@ -1,18 +1,28 @@
 <?php
 namespace Ben221199\Oxxa\API\Objects;
 
+use Exception;
+
 use SimpleXMLElement;
 
 class Channel{
 
-    /**@var Order $order*/
+    /**@var ?Order|null $order*/
     private $order;
 
-    public function getOrder(){
+    /**
+     * @return ?Order|null
+     */
+    public function getOrder(): ?Order{
         return $this->order;
     }
 
-    public static function fromXML(string $xml){
+    /**
+     * @param string $xml
+     * @return self
+     * @throws Exception
+     */
+    public static function fromXML(string $xml): self{
         $simpleXML = new SimpleXMLElement($xml);
 
         $channel = new static;

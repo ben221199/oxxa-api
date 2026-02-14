@@ -2,6 +2,7 @@
 namespace Ben221199\Oxxa\API\Objects\Resources;
 
 use Ben221199\Oxxa\API\Objects\Details;
+
 use SimpleXMLElement;
 
 /**
@@ -46,11 +47,12 @@ use SimpleXMLElement;
  */
 class Identity{
 
-	/**
-	 * @param Details $details
-	 * @return Identity[]|Identity
-	 */
-	public static function fromDetails($details,$isSingle=false){
+    /**
+     * @param Details $details
+     * @param ?bool|null $isSingle
+     * @return Identity[]|Identity
+     */
+	public static function fromDetails(Details $details,?bool $isSingle=false){
         $identities = $details->xpath('identity');
 		if($isSingle){
             $identities = [$details];
@@ -58,7 +60,7 @@ class Identity{
 		$data = [];
 		/**@var SimpleXMLElement $identity*/
 		foreach($identities AS $identity){
-			$d = new self;
+			$d = new static;
             $d->handle				= ((string) @$identity->xpath('handle')[0]) ?? null;
             $d->alias				= ((string) @$identity->xpath('alias')[0]) ?? null;
             $d->company				= ((string) @$identity->xpath('company')[0]) ?? null;

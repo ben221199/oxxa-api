@@ -17,8 +17,8 @@ class NSGroup_Nameservers{
      * @param SimpleXMLElement $element
      * @return NSGroup_Nameservers
      */
-    public static function from($element){
-        $nameservers = new self;
+    public static function from(SimpleXMLElement $element): self{
+        $nameservers = new static;
         $nameservers->ns1_fqdn	= ((string) @$element->xpath('ns1_fqdn')[0]) ?? null;
         $nameservers->ns2_fqdn	= ((string) @$element->xpath('ns2_fqdn')[0]) ?? null;
         $nameservers->ns3_fqdn	= ((string) @$element->xpath('ns3_fqdn')[0]) ?? null;
